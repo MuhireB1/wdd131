@@ -1,0 +1,109 @@
+/* General styles */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: #f4f4f4;
+}
+header {
+    background: #1f4e79;
+    color: white;
+    text-align: center;
+}
+header h1 {
+    margin: 0;
+    padding: 15px;
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+nav {
+    background: #333;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* About Me | Resources */
+    gap: 20px;
+    width: 90%;
+    max-width: 1100px;
+    margin: 20px auto;
+}
+
+/* Make your name span both columns */
+.name {
+    grid-column: 1 / 3;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Cards */
+.card {
+    background: white;
+    border: 1px solid #999;
+    border-radius: 8px;
+}
+
+.card h2 {
+    background: #1f4e79;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 0;
+}
+
+/* Profile image on the RIGHT */
+.card img:first-of-type {
+    float: right;
+    width: 150px;
+    margin: 10px 20px;
+}
+
+/* Flag on the LEFT */
+.card img:last-of-type {
+    float: left;
+    width: 120px;
+    margin: 10px 20px 10px 10px;
+}
+
+.card p,
+.card h3 {
+    margin: 15px;
+}
+
+.card h3 {
+    text-align: center;
+    clear: both;
+    border-bottom: 1px solid #999;
+    border-width: 1px;
+}
+
+/* Resources */
+.card:last-child a {
+    display: block;
+    margin: 15px 20px;
+}
+
+/* Footer */
+footer {
+    background: #1f4e79;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
