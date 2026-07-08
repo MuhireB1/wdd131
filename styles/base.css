@@ -41,6 +41,11 @@ nav a {
     text-decoration: none;
 }
 
+li a:hover {
+    color: #e0944cde;
+    text-decoration: none;
+}
+
 main {
     display: grid;
     grid-template-columns: 2fr 1fr;
