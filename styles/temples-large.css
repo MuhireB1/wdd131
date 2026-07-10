@@ -25,18 +25,12 @@
 
     main{
         grid-template-columns:repeat(3,1fr);
-        max-width:1200px;
+        max-width:800px;
+        margin: 0 auto;
     }
 
     main h1{
         grid-column:1/-1;
     }
-    figure {
-        width:100%;
-    }
-
-
-    figure img {
-        width:100%;
-    }
+    
 }
