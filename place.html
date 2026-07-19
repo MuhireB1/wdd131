@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/place.css">
+    <link rel="stylesheet" href="styles/place-wide.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <title>The parl of Africa Uganda</title>
+    <meta name="description" content="The beaty and natural features of Uganda (the parl of Africa)">
+    <meta name="author" content="Muhire Bienvenue">
+</head>
+<body>
+    <header>
+        <h1>Uganda</h1>
+    </header>
+    <main>
+        <picture>
+            <source srcset="images/uganda-small.webp" media= "(max-width: 600px)">
+            <source srcset="images/uganda-medium.webp" media="(max-width: 1080px)">
+            <img src="images/uganda-large.webp" atl="Uganda Waterfalls" width="1600" height="720">
+        </picture>
+        <section class="data">
+            <h2>Data</h2>
+        </section>
+        <section class="weather">
+            <h2>Weather</h2>
+            <p><strong>Temperature:</strong> <span id="temperature">10</span> °C</p>
+            <p><strong>Wind Speed:</strong> <span id="windspeed">5</span> km/h</p>
+            <p><strong>Wind Chill:</strong> <span id="windchill"></span></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy;<span id="current-year"></span>🌺 MUHIRE BIENVENUE🌺 Uganda</p>
+    <p id=lastModified></p></footer>
+    <script src="scripts/place.js" defer></script>
+</body>
+</html>

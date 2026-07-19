@@ -1,0 +1,30 @@
+@media screen and (min-width: 768px) {
+
+    main {
+        position: relative;
+    }
+
+    section {
+        position: absolute;
+        width: 280px;
+    }
+
+    .data {
+        top: 40px;
+        left: 30px;
+    }
+
+    .weather {
+        bottom: 40px;
+        right: 30px;
+    }
+
+    .weather h2::after {
+        content: "";
+    }
+
+    .weather h2::before {
+        margin-right: .5rem;
+        font-size: 1.5rem;
+    }
+}

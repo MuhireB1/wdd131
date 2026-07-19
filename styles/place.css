@@ -1,0 +1,129 @@
+:root {
+    /* Uganda Flag Color Palette */
+    --black: #000000;
+    --yellow: #FCDC04;
+    --red: #D90000;
+    --grey: #9CA69C;
+    --white: #FFFFFF;
+    --overlay-red: rgba(217, 0, 0, 0.45);
+
+    /* Theme Colors */
+    --body-bg: var(--grey);
+    --text-color: var(--black);
+    --card-bg: var(--white);
+    --header-bg: var(--yellow);
+    --footer-bg: var(--black);
+    --heading-bg: rgba(250, 2, 2, 0.95);
+    --heading-text: var(--white);
+
+    /* Typography */
+    --font-family: "Roboto", sans-serif;
+
+    /* Spacing */
+    --spacing: 1rem;
+    --radius: 10px;
+
+    /* Shadow */
+    --shadow: 0 2px 8px rgba(19, 18, 18, 0.15);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 1rem;
+    font-family: var(--font-family);
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--black);
+    text-align: center;
+    padding: var(--spacing);
+    border-bottom: 8px solid var(--red);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+section{
+    position: relative;
+}
+
+.data, .weather {
+    z-index: 0;
+    position: absolute;
+}
+
+picture {
+    display: block;
+    width: 100%;
+}
+
+picture img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+picture img {
+    max-height: 500px;
+    object-fit: cover;
+}
+
+section {
+    background-color: var(--card-bg);
+    margin: var(--spacing);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    text-align: center;
+}
+
+section h2 {
+    margin: 0;
+    padding: 0.75rem 1rem;
+    background-color: var(--heading-bg);
+    color: var(--heading-text);
+}
+
+section p,
+section ul,
+section dl {
+    padding: 1rem;
+    margin: 0;
+}
+
+.weather h2::after {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    background: url("../images/weather.svg") no-repeat center;
+    background-size: contain;
+}
+
+footer {
+    background-color: var(--footer-bg);
+    color: var(--white);
+    text-align: center;
+    padding: var(--spacing);
+    margin-top: var(--spacing);
+    border-top: 8px solid var(--red);
+}
+
+#lastModified {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+}
