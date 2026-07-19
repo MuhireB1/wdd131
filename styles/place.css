@@ -54,13 +54,11 @@ header h1 {
     font-size: 2rem;
 }
 
-section{
-    position: relative;
-}
-
-.data, .weather {
-    z-index: 0;
-    position: absolute;
+.data,
+.weather {
+    position: static;
+    width: auto;
+    margin: var(--spacing);
 }
 
 picture {
