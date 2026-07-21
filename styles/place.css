@@ -101,6 +101,14 @@ section dl {
     margin: 0;
 }
 
+section dl dt {
+    font-weight: bold;
+}
+
+section dl dd {
+    margin: 0 0 0.75rem;
+}
+
 .weather h2::after {
     content: "";
     display: inline-block;
