@@ -133,3 +133,27 @@ footer {
     margin-top: 0.5rem;
     font-size: 0.85rem;
 }
+
+.image-container {
+  background-color: #000;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.image-container img {
+  display: block;
+}
+
+.fade-from-black {
+  opacity: 0;
+  animation: fadeFromBlackEffect 2s ease-in-out forwards;
+}
+
+@keyframes fadeFromBlackEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
