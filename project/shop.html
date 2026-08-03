@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Shop Rwanda | Shop Products</title>
+  <link rel="stylesheet" href="styles/e-commerce.css">
+  <link rel="stylesheet" href="styles/siteplan-media-querry.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">
+      <img src="images/logo.webp" alt="E-Shop Rwanda Logo" width="72" height="72">
+      <div>
+        <h1>E-Shop Rwanda</h1>
+        <p>Shop Anytime, Anywhere</p>
+      </div>
+    </a>
+
+    <button id="menu"
+        class="menu-btn"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="primary-nav"></button>
+
+    <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" class="active" aria-current="page">Shop</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="cart-widget">
+      <span aria-hidden="true">🛒</span>
+      <div>
+        <strong id="cart-count">0</strong> items<br>
+        <span id="cart-total">RWF 0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <section class="section-heading">
+      <h2>Shop Products</h2>
+      <p>Browse groceries, electronics, coffee, and household essentials.</p>
+    </section>
+
+    <nav class="filter-bar" aria-label="Filter products by category">
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="groceries">Groceries</button>
+      <button class="filter-btn" data-category="electronics">Electronics</button>
+      <button class="filter-btn" data-category="coffee">Coffee</button>
+    </nav>
+
+    <div id="product-grid" class="product-grid"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 E-Shop Rwanda — Current Prices • Easy Shopping • Fast Delivery</p>
+  </footer>
+
+  <script src="scripts/scripts.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Shop Rwanda | Contact Us</title>
+  <link rel="stylesheet" href="styles/e-commerce.css">
+  <link rel="stylesheet" href="styles/siteplan-media-querry.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">
+      <img src="images/logo.webp" alt="E-Shop Rwanda Logo" width="72" height="72">
+      <div>
+        <h1>E-Shop Rwanda</h1>
+        <p>Shop Anytime, Anywhere</p>
+      </div>
+    </a>
+
+    <button id="menu"
+        class="menu-btn"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="primary-nav"></button>
+
+    <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="cart-widget">
+      <span aria-hidden="true">🛒</span>
+      <div>
+        <strong id="cart-count">0</strong> items<br>
+        <span id="cart-total">RWF 0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <section class="section-heading">
+      <h2>Contact E-Shop Rwanda</h2>
+      <p>Have a question, order issue, or partnership request? We would love to hear from you.</p>
+    </section>
+
+    <form id="contact-form" class="contact-form" novalidate>
+      <fieldset>
+        <legend>Send Us a Message</legend>
+
+        <div class="form-group">
+          <label for="fullname">Full Name <span class="required" title="Required">*</span></label>
+          <input type="text" id="fullname" name="fullname" autocomplete="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address <span class="required" title="Required">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" 
+                 id="phone" 
+                 name="phone"
+                 autocomplete="tel"
+                 placeholder="078XXXXXXX"
+                 pattern="^(\+250|0)?7[2389]\d{7}$">
+        </div>
+
+        <div class="form-group">
+          <label for="topic">Reason for Contact <span class="required" title="Required">*</span></label>
+          <select id="topic" name="topic" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="order">Order Support</option>
+            <option value="delivery">Delivery Inquiry</option>
+            <option value="partnership">Supplier Partnership</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message <span class="required" title="Required">*</span></label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-row">
+            <input type="checkbox" id="newsletter" name="newsletter">
+            <span>Subscribe to special offers and delivery updates</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </fieldset>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 E-Shop Rwanda — Current Prices • Easy Shopping • Fast Delivery</p>
+  </footer>
+
+  <script src="scripts/scripts.js" defer></script>
+</body>
+</html>

@@ -175,6 +175,6 @@ document.querySelector("#small").addEventListener("click", (event) => {
     const smallTemples = temples.filter(temple => 
         temple.area < 10000
     );
-
+  
     displayTemples(smallTemples);
 });

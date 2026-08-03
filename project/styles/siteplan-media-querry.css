@@ -1,0 +1,77 @@
+/* ---------- RESPONSIVE ---------- */
+
+/* Portrait */
+@media (orientation: portrait) and (max-width: 767px) {
+  .hero {
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+}
+
+/* Landscape tablets */
+@media (orientation: landscape) and (min-width: 768px) {
+  .hero {
+    grid-template-columns: 1.1fr 0.9fr;
+    padding: 4rem 2rem;
+  }
+
+  .features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+  .site-header {
+    padding: 1rem 2rem;
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  .primary-nav {
+    display: block;
+    width: auto;
+  }
+
+  .primary-nav ul {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Wide screens */
+@media (min-width: 1400px) {
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    padding: 5rem 4rem;
+  }
+
+  .hero-content {
+    max-width: 650px;
+  }
+
+  .features,
+  .products-section,
+  .page-content {
+    max-width: 1400px;
+    margin-inline: auto;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
