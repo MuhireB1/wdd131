@@ -1,0 +1,246 @@
+//E-Shop Rwanda — Site Plan
+Logo
+<img src="images/logo.webp" alt="E-Shop Rwanda Logo" width="120" height="120">
+Site Name
+
+E-Shop Rwanda
+
+Why this name was chosen:
+The name clearly identifies the website as an online shopping platform operating in Rwanda. It is short, memorable, easy to pronounce, and suitable for branding, marketing, and future expansion of the business.
+
+Optional domain idea:
+eshoprwanda.com
+
+Site Purpose
+
+The purpose of E-Shop Rwanda is to provide a convenient online shopping platform where customers can:
+
+View current prices of products.
+Browse categories such as groceries, electronics, coffee, fashion, and household essentials.
+Add products to a shopping cart.
+Calculate the total order amount automatically.
+Place orders for fast delivery across Rwanda.
+Access information about payment options, delivery services, and customer support.
+
+The site is designed to bridge the gap between buyers and sellers by making shopping possible anytime and anywhere.
+
+Scenarios
+
+The following questions represent common needs of the target audience:
+
+Scenario 1
+
+How can I check the current price of groceries before placing an order?
+
+Scenario 2
+
+Does E-Shop Rwanda offer delivery services outside Kigali, and how long does delivery take?
+
+Scenario 3
+
+Can I pay using Mobile Money instead of a bank card?
+
+Scenario 4
+
+Where can I contact customer support if I have a problem with my order?
+
+Color Schema
+
+The website uses a modern and trustworthy color palette inspired by Rwanda's energetic and professional identity.
+
+Color	Hex Code	Usage
+Primary Blue	#0056D2	Header background, buttons, links
+Accent Yellow	#F4C542	Call-to-action highlights, badges, icons
+Dark Gray	#1F2937	Main headings and footer background
+Light Gray	#F5F7FA	Page background and section backgrounds
+White	#FFFFFF	Card backgrounds and text on dark areas
+Color Usage Examples
+Primary Blue (#0056D2) → navigation bar, primary buttons, active links.
+Accent Yellow (#F4C542) → promotional badges, hover effects, feature icons.
+Dark Gray (#1F2937) → headings, footer, important text.
+Light Gray (#F5F7FA) → overall page background.
+White (#FFFFFF) → content cards and readable contrast areas.
+Typography
+
+The site uses Google Fonts for readability and modern presentation.
+
+Heading Font
+
+Poppins
+
+Used for:
+
+Site title
+Page headings (h1–h4)
+Navigation links
+Buttons and promotional text
+
+Example:
+
+font-family: "Poppins", sans-serif;
+Body Font
+
+Roboto
+
+Used for:
+
+Paragraphs
+Product descriptions
+Forms
+Footer text
+General content
+
+Example:
+
+font-family: "Roboto", sans-serif;
+Wireframes
+Mobile View Wireframe
+┌─────────────────────┐
+│ LOGO + MENU BUTTON  │
+├─────────────────────┤
+│ HERO IMAGE          │
+│ Headline            │
+│ Short description   │
+│ [Shop Now]          │
+├─────────────────────┤
+│ FEATURE CARD        │
+├─────────────────────┤
+│ FEATURE CARD        │
+├─────────────────────┤
+│ FEATURE CARD        │
+├─────────────────────┤
+│ PRODUCT PREVIEW     │
+├─────────────────────┤
+│ FOOTER              │
+└─────────────────────┘
+Desktop View Wireframe
+┌──────────────────────────────────────────────┐
+│ LOGO   NAVIGATION MENU        CART WIDGET   │
+├──────────────────────────────────────────────┤
+│ HERO TEXT            │ HERO IMAGE           │
+│ Heading              │                      │
+│ Description          │                      │
+│ [Shop Now] [Deals]   │                      │
+├──────────────────────────────────────────────┤
+│ FEATURE 1 │ FEATURE 2 │ FEATURE 3           │
+├──────────────────────────────────────────────┤
+│           FEATURED PRODUCTS GRID             │
+│   Product   Product   Product   Product      │
+├──────────────────────────────────────────────┤
+│                 FOOTER                       │//
+
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Shop Rwanda | Current Prices & Fast Delivery</title>
+  <meta name="description" content="Shop groceries, electronics, coffee, and household essentials online in Rwanda with fast delivery and secure checkout.">
+  <meta name="author" content="Muhire Bienvenue">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/e-commerce.css">
+  <link rel="stylesheet" href="styles/siteplan-media-querry.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">
+      <img src="images/logo.webp" alt="E-Shop Rwanda Logo" width="72" height="72">
+      <div>
+        <h1>E-Shop Rwanda</h1>
+        <p>Shop Anytime, Anywhere</p>
+      </div>
+    </a>
+
+    <button id="menu"
+        class="menu-btn"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="primary-nav"></button>
+
+    <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="cart-widget">
+      <span aria-hidden="true">🛒</span>
+      <div>
+        <strong id="cart-count">0</strong> items<br>
+        <span id="cart-total">RWF 0</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-badge">🔥 Top Deals in Rwanda</span>
+        <h2>Fresh Groceries, Electronics & Daily Essentials Delivered Fast</h2>
+        <p>
+          Discover unbeatable prices, trusted local products, and convenient
+          delivery across Rwanda.
+        </p>
+        <div class="hero-actions">
+          <a href="shop.html" class="btn btn-primary">Start Shopping</a>
+          <a href="shop.html#featured-products" class="btn btn-secondary">View Deals</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <picture>
+          <source media="(min-width: 1200px)" srcset="images/hero-wide.webp 1600w">
+          <source media="(min-width: 768px)" srcset="images/hero-landscape.webp 1200w">
+          <img src="images/hero-portrait.webp"
+               srcset="images/hero-portrait.webp 600w,
+                       images/hero-landscape.webp 1200w,
+                       images/hero-wide.webp 1600w"
+               sizes="(min-width: 1200px) 50vw,
+                      (min-width: 768px) 55vw,
+                      100vw"
+               loading="eager"
+               alt="Customers shopping online with E-Shop Rwanda"
+               width="800"
+               height="600">
+        </picture>
+      </div>
+    </section>
+
+    <section class="features" aria-label="Store benefits">
+      <article class="feature-card">
+        <span aria-hidden="true">🚚</span>
+        <h3>Fast Delivery</h3>
+        <p>Same-day delivery available in Kigali and major towns.</p>
+      </article>
+
+      <article class="feature-card">
+        <span aria-hidden="true">💳</span>
+        <h3>Secure Payments</h3>
+        <p>Pay safely with mobile money, cards, or cash on delivery.</p>
+      </article>
+
+      <article class="feature-card">
+        <span aria-hidden="true">⭐</span>
+        <h3>Trusted Quality</h3>
+        <p>Carefully selected products from reliable Rwandan suppliers.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 E-Shop Rwanda — Current Prices • Easy Shopping • Fast Delivery</p>
+  </footer>
+
+  <script src="scripts/scripts.js" defer></script>
+</body>
+</html>
