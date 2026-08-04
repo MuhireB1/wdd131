@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProducts();
   refreshUI();
 });
-
+ 
 // --- CONFIG & DATA ARCHITECTURE ---
 const CONFIG = {
   CART_KEY: 'eshop-cart',
