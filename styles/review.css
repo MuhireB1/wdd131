@@ -163,3 +163,9 @@ footer p {
         font-size: 1.8rem;
     }
 }
+
+.required {
+    color: #dc2626;
+    font-weight: 700;
+    margin-left: 0.2rem;
+}
