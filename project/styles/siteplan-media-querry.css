@@ -1,7 +1,6 @@
-/* ---------- RESPONSIVE ---------- */
-
-/* Portrait */
+/* ---------- Portrait ---------- */
 @media (orientation: portrait) and (max-width: 767px) {
+
   .hero {
     text-align: center;
   }
@@ -11,8 +10,9 @@
   }
 }
 
-/* Landscape tablets */
-@media (orientation: landscape) and (min-width: 768px) {
+/* ---------- Tablets ---------- */
+@media (min-width: 768px) {
+
   .hero {
     grid-template-columns: 1.1fr 0.9fr;
     padding: 4rem 2rem;
@@ -25,27 +25,22 @@
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .content-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cart-layout {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
 }
 
-/* Desktop */
+/* ---------- Desktop ---------- */
 @media (min-width: 992px) {
+
   .site-header {
     padding: 1rem 2rem;
-  }
-
-  .menu-btn {
-    display: none;
-  }
-
-  .primary-nav {
-    display: block;
-    width: auto;
-  }
-
-  .primary-nav ul {
-    flex-direction: row;
-    align-items: center;
-    margin-top: 0;
   }
 
   .product-grid {
@@ -53,8 +48,9 @@
   }
 }
 
-/* Wide screens */
+/* ---------- Wide Screens ---------- */
 @media (min-width: 1400px) {
+
   .hero {
     grid-template-columns: 1fr 1fr;
     padding: 5rem 4rem;

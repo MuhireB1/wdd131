@@ -3,15 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>E-Shop Rwanda | About Us</title>
+
+  <meta name="description"
+        content="Learn about E-Shop Rwanda, our mission, vision, and commitment to affordable and secure online shopping across Rwanda.">
+
+  <meta name="author" content="Muhire Bienvenue">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
   <link rel="stylesheet" href="styles/e-commerce.css">
   <link rel="stylesheet" href="styles/siteplan-media-querry.css">
 </head>
+
 <body>
 
   <header class="site-header">
     <a href="index.html" class="logo">
-      <img src="images/logo.webp" alt="E-Shop Rwanda Logo" width="72" height="72">
+      <img src="images/logo.webp"
+           alt="E-Shop Rwanda Logo"
+           width="72"
+           height="72">
+
       <div>
         <h1>E-Shop Rwanda</h1>
         <p>Shop Anytime, Anywhere</p>
@@ -19,12 +36,16 @@
     </a>
 
     <button id="menu"
-        class="menu-btn"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="primary-nav"></button>
+            class="menu-btn"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="primary-nav">
+    </button>
 
-    <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
+    <nav id="primary-nav"
+         class="primary-nav"
+         aria-label="Main navigation">
+
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="shop.html">Shop</a></li>
@@ -34,24 +55,32 @@
       </ul>
     </nav>
 
-    <div class="cart-widget">
+    <aside class="cart-widget" aria-label="Shopping cart summary">
       <span aria-hidden="true">🛒</span>
+
       <div>
         <strong id="cart-count">0</strong> items<br>
         <span id="cart-total">RWF 0</span>
       </div>
-    </div>
+    </aside>
   </header>
 
   <main class="page-content">
+
     <section class="section-heading">
       <h2>About E-Shop Rwanda</h2>
-      <p>Connecting buyers and sellers across Rwanda through a reliable digital marketplace.</p>
+
+      <p>
+        Learn more about our mission, vision, and commitment
+        to convenient online shopping across Rwanda.
+      </p>
     </section>
 
     <section class="content-grid">
+
       <article class="info-card">
         <h3>Our Mission</h3>
+
         <p>
           To provide affordable, convenient, and secure online shopping services
           that make quality products accessible to households and businesses across Rwanda.
@@ -60,6 +89,7 @@
 
       <article class="info-card">
         <h3>Our Vision</h3>
+
         <p>
           To become Rwanda’s most trusted e-commerce platform by supporting local suppliers,
           improving delivery efficiency, and creating a seamless customer experience.
@@ -68,6 +98,7 @@
 
       <article class="info-card">
         <h3>Why Choose Us?</h3>
+
         <ul>
           <li>Fast nationwide delivery</li>
           <li>Competitive and transparent pricing</li>
@@ -76,13 +107,17 @@
           <li>Support for local Rwandan producers</li>
         </ul>
       </article>
+
     </section>
+
   </main>
 
   <footer class="site-footer">
     <p>© 2026 E-Shop Rwanda — Current Prices • Easy Shopping • Fast Delivery</p>
+    <p id="lastModified"></p>
   </footer>
 
   <script src="scripts/scripts.js" defer></script>
+
 </body>
 </html>

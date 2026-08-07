@@ -49,19 +49,38 @@
       <p>Browse groceries, electronics, coffee, and household essentials.</p>
     </section>
 
-    <nav class="filter-bar" aria-label="Filter products by category">
-      <button class="filter-btn active" data-category="all">All</button>
-      <button class="filter-btn" data-category="groceries">Groceries</button>
-      <button class="filter-btn" data-category="electronics">Electronics</button>
-      <button class="filter-btn" data-category="coffee">Coffee</button>
-    </nav>
+   <!-- Search + Filter Section -->
+<section class="shop-controls">
+  <input
+    type="search"
+    id="product-search"
+    placeholder="Search products..."
+    aria-label="Search products">
 
-    <div id="product-grid" class="product-grid"></div>
-  </main>
+  <nav class="filter-bar" aria-label="Filter products by category">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="groceries">Groceries</button>
+    <button class="filter-btn" data-category="electronics">Electronics</button>
+    <button class="filter-btn" data-category="coffee">Coffee</button>
+    <button class="filter-btn" data-category="fashion">Fashion</button>
+    <button class="filter-btn" data-category="home">Home</button>
+  </nav>
 
-  <footer class="site-footer">
-    <p>© 2026 E-Shop Rwanda — Current Prices • Easy Shopping • Fast Delivery</p>
-  </footer>
+  <div class="availability-filters">
+    <button class="availability-btn active" data-stock="all">All Items</button>
+    <button class="availability-btn" data-stock="in-stock">In Stock</button>
+    <button class="availability-btn" data-stock="out-of-stock">Out of Stock</button>
+  </div>
+</section>
+
+<!-- Product Grid -->
+<div id="product-grid" class="product-grid"></div>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2026 E-Shop Rwanda</p>
+  <p id="lastModified"></p>
+</footer>
 
   <script src="scripts/scripts.js" defer></script>
 </body>
