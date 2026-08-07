@@ -74,16 +74,17 @@ textarea {
     resize: vertical;
 }
 
+/* Rating section */
 fieldset {
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 1rem;
+    background: #ffffff;
 }
 
-fieldset label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+fieldset legend {
+    color: #111827;   /* Darker text for better contrast */
+    font-weight: 600;
 }
 
 .rating {
@@ -99,7 +100,7 @@ fieldset label {
 
 .rating label {
     font-size: 2rem;
-    color: #cbd5e1;
+    color: #6b7280;   /* Darker gray instead of very light gray */
     cursor: pointer;
     transition: color 0.2s ease;
 }
@@ -107,7 +108,7 @@ fieldset label {
 .rating label:hover,
 .rating label:hover ~ label,
 .rating input:checked ~ label {
-    color: var(--accent);
+    color: #d97706;   /* Accessible amber/gold */
 }
 
 input[type="submit"] {
