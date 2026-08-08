@@ -55,6 +55,7 @@ const PRODUCTS = [
     oldPrice: 3000,
     image: 'images/avocados-small.webp',
     badge: '🔥 Hot Deal',
+    inStock: true,
   },
   {
     id: 2,
@@ -64,6 +65,7 @@ const PRODUCTS = [
     oldPrice: 45000,
     image: 'images/headphones-small.webp',
     badge: '⭐ Top Pick',
+    inStock: true,
   },
   {
     id: 3,
@@ -73,8 +75,174 @@ const PRODUCTS = [
     oldPrice: 12000,
     image: 'images/coffee-small.webp',
     badge: '🔥 Hot Deal',
+    inStock: true,
   },
+  {
+    id: 4,
+    name: 'Fresh Tomatoes',
+    category: 'groceries',
+    price: 1500,
+    oldPrice: 1800,
+    image: 'images/tomatoes-small.webp',
+    badge: '🔥 Hot Deal',
+    inStock: true,
+  },
+  {
+    id: 5,
+    name: 'Kitchen Blender',
+    category: 'home',
+    price: 45000,
+    oldPrice: 52000,
+    image: 'images/blender-small.webp',
+    badge: '⭐ Top Pick',
+    inStock: true,
+  },
+  {
+    id: 6,
+    name: 'Travel Backpack',
+    category: 'fashion',
+    price: 28500,
+    oldPrice: 33000,
+    image: 'images/backpack-small.webp',
+    badge: '🆕 New',
+    inStock: true,
+  },
+  {
+    id: 7,
+    name: 'Cooking Oil 3L',
+    category: 'groceries',
+    price: 7200,
+    oldPrice: 8000,
+    image: 'images/cooking-oil-small.webp',
+    badge: '🔥 Hot Deal',
+    inStock: true,
+  },
+  {
+    id: 8,
+    name: 'Modern LED Lamp',
+    category: 'home',
+    price: 19800,
+    oldPrice: 23000,
+    image: 'images/lamp-small.webp',
+    badge: '⭐ Top Pick',
+    inStock: true,
+  },
+  {
+    id: 9,
+    name: 'Premium Rice 10kg',
+    category: 'groceries',
+    price: 18500,
+    oldPrice: 20500,
+    image: 'images/rice-small.webp',
+    badge: '🔥 Hot Deal',
+    inStock: true,
+  },
+  {
+    id: 10,
+    name: 'Comfort Sneakers',
+    category: 'fashion',
+    price: 36500,
+    oldPrice: 42000,
+    image: 'images/sneakers-small.webp',
+    badge: '🆕 New',
+    inStock: true,
+  },
+  {
+    id: 11,
+    name: 'Cotton T-Shirts Pack',
+    category: 'fashion',
+    price: 14500,
+    oldPrice: 16500,
+    image: 'images/tshirts-small.webp',
+    badge: '⭐ Top Pick',
+    inStock: true,
+  },
+  {
+    id: 12,
+    name: 'Electric Kettle',
+    category: 'home',
+    price: 32000,
+    oldPrice: 36000,
+    image: 'images/kettle-small.webp',
+    badge: '⭐ Top Pick',
+    inStock: true,
+  },
+  {
+    id: 13,
+    name: 'Portable Power Bank',
+    category: 'electronics',
+    price: 25500,
+    oldPrice: 30000,
+    image: 'images/powerbank-small.webp',
+    badge: '⭐ Top Pick',
+    inStock: true,
+  },
+  {
+    id: 14,
+    name: 'Organic Bananas',
+    category: 'groceries',
+    price: 1800,
+    oldPrice: 2200,
+    image: 'images/bananas-small.webp',
+    badge: '🔥 Hot Deal',
+    inStock: true,
+  },
+  {
+    id: 15,
+    name: 'Rwandan Arabica Ground Coffee',
+    category: 'coffee',
+    price: 8900,
+    oldPrice: 9900,
+    image: 'images/ground-coffee-small.webp',
+    badge: '🔥 Hot Deal',
+    inStock: true,
+  },
+  {
+    id: 16,
+    name: 'iPhone 17 pro max',
+    category: 'electronics',
+    price: 75000,
+    oldPrice: 85000,
+    image: 'images/iphone17-pro-max.webp',
+    badge: '🔥 Hot Deal',
+    inStock: true,
+  }
 ];
+
+document.addEventListener('DOMContentLoaded', () => {
+  setupNavigation();
+  setupGlobalEvents();
+  setupFilters();
+  setupContactForm();
+  setupNewsletterForm();
+  setupFooter();
+
+  renderProducts();
+  refreshUI();
+});
+
+//--Newsletter Form Handling--
+function setupNewsletterForm() {
+  const form = document.querySelector('#newsletter-form');
+
+  if (!form) return;
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const email = document
+      .querySelector('#newsletter-email')
+      ?.value.trim();
+
+    if (!email) return;
+
+    localStorage.setItem('eshop-newsletter', email);
+
+    alert(`Thank you for subscribing, ${email}!`);
+
+    form.reset();
+  });
+}
 
 // --- UTILITIES ---
 const formatCurrency = (amount) =>

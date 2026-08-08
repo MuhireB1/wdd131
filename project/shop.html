@@ -3,15 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>E-Shop Rwanda | Shop Products</title>
+
+  <meta name="description"
+        content="Browse groceries, electronics, coffee, fashion, and household essentials available for fast delivery across Rwanda.">
+
+  <meta name="author" content="Muhire Bienvenue">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
   <link rel="stylesheet" href="styles/e-commerce.css">
   <link rel="stylesheet" href="styles/siteplan-media-querry.css">
 </head>
+
 <body>
 
+  <!-- ================= HEADER ================= -->
   <header class="site-header">
+
     <a href="index.html" class="logo">
-      <img src="images/logo.webp" alt="E-Shop Rwanda Logo" width="72" height="72">
+      <img src="images/logo.webp"
+           alt="E-Shop Rwanda Logo"
+           width="72"
+           height="72">
+
       <div>
         <h1>E-Shop Rwanda</h1>
         <p>Shop Anytime, Anywhere</p>
@@ -19,12 +39,16 @@
     </a>
 
     <button id="menu"
-        class="menu-btn"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="primary-nav"></button>
+            class="menu-btn"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="primary-nav">
+    </button>
 
-    <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
+    <nav id="primary-nav"
+         class="primary-nav"
+         aria-label="Main navigation">
+
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="shop.html" class="active" aria-current="page">Shop</a></li>
@@ -34,54 +58,85 @@
       </ul>
     </nav>
 
-    <div class="cart-widget">
+    <aside class="cart-widget" aria-label="Shopping cart summary">
       <span aria-hidden="true">🛒</span>
+
       <div>
         <strong id="cart-count">0</strong> items<br>
         <span id="cart-total">RWF 0</span>
       </div>
-    </div>
+    </aside>
+
   </header>
 
+  <!-- ================= MAIN ================= -->
   <main class="page-content">
-    <section class="section-heading">
+
+    <header class="section-heading">
       <h2>Shop Products</h2>
-      <p>Browse groceries, electronics, coffee, and household essentials.</p>
+      <p>
+        Browse groceries, electronics, coffee, fashion,
+        and household essentials available for delivery across Rwanda.
+      </p>
+    </header>
+
+    <!-- Search + Filter Controls -->
+    <section class="shop-controls" aria-label="Product search and filters">
+
+      <label for="product-search" class="sr-only">
+        Search products
+      </label>
+
+      <input type="search"
+             id="product-search"
+             placeholder="Search products..."
+             aria-label="Search products">
+
+      <nav class="filter-bar" aria-label="Filter products by category">
+        <button type="button" class="filter-btn active" data-category="all">All</button>
+        <button type="button" class="filter-btn" data-category="groceries">Groceries</button>
+        <button type="button" class="filter-btn" data-category="electronics">Electronics</button>
+        <button type="button" class="filter-btn" data-category="coffee">Coffee</button>
+        <button type="button" class="filter-btn" data-category="fashion">Fashion</button>
+        <button type="button" class="filter-btn" data-category="home">Home</button>
+      </nav>
+
+      <div class="availability-filters" role="group" aria-label="Filter by availability">
+        <button type="button" class="availability-btn active" data-stock="all">
+          All Items
+        </button>
+
+        <button type="button" class="availability-btn" data-stock="in-stock">
+          In Stock
+        </button>
+
+        <button type="button" class="availability-btn" data-stock="out-of-stock">
+          Out of Stock
+        </button>
+      </div>
+
     </section>
 
-   <!-- Search + Filter Section -->
-<section class="shop-controls">
-  <input
-    type="search"
-    id="product-search"
-    placeholder="Search products..."
-    aria-label="Search products">
+    <!-- Products Grid -->
+    <section class="products-section" aria-labelledby="featured-products">
 
-  <nav class="filter-bar" aria-label="Filter products by category">
-    <button class="filter-btn active" data-category="all">All</button>
-    <button class="filter-btn" data-category="groceries">Groceries</button>
-    <button class="filter-btn" data-category="electronics">Electronics</button>
-    <button class="filter-btn" data-category="coffee">Coffee</button>
-    <button class="filter-btn" data-category="fashion">Fashion</button>
-    <button class="filter-btn" data-category="home">Home</button>
-  </nav>
+      <h2 id="featured-products" class="sr-only">
+        Featured products
+      </h2>
 
-  <div class="availability-filters">
-    <button class="availability-btn active" data-stock="all">All Items</button>
-    <button class="availability-btn" data-stock="in-stock">In Stock</button>
-    <button class="availability-btn" data-stock="out-of-stock">Out of Stock</button>
-  </div>
-</section>
+      <div id="product-grid" class="product-grid"></div>
 
-<!-- Product Grid -->
-<div id="product-grid" class="product-grid"></div>
+    </section>
 
-<!-- Footer -->
-<footer>
-  <p>&copy; 2026 E-Shop Rwanda</p>
-  <p id="lastModified"></p>
-</footer>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <p>© 2026 E-Shop Rwanda — Current Prices • Easy Shopping • Fast Delivery</p>
+    <p id="lastModified"></p>
+  </footer>
 
   <script src="scripts/scripts.js" defer></script>
+
 </body>
 </html>
