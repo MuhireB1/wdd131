@@ -1,36 +1,51 @@
+```css
 :root {
-    --primary: #0056d2;
-    --primary-dark: #003f9e;
-    --accent: #f4c542;
-    --background: #f5f7fa;
+    --primary: #1a1f2e;
+    --primary-dark: #10131d;
+    --accent: #ff8c00;
+    --background: #eccbac;
     --surface: #ffffff;
-    --text: #1f2937;
-    --border: #d1d5db;
+    --text: #1a1f2e;
+    --border: #1a1f2e;
+    --focus: #1a1f2e;
+    --required: #1a1f2e;
 }
 
 * {
     box-sizing: border-box;
 }
 
+html {
+    font-family: "Roboto", sans-serif;
+}
+
 body {
     margin: 0;
-    font-family: "Roboto", sans-serif;
-    background: var(--background);
-    color: var(--text);
+    background-color: #eccbac;
+    color: #1a1f2e;
     line-height: 1.6;
 }
 
+/* Header */
+
 header {
-    background: var(--primary);
-    color: white;
+    background-color: #1a1f2e;
+    color: #ffffff;
     text-align: center;
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
 }
 
 header h1 {
     margin: 0;
     font-family: "Poppins", sans-serif;
+    font-weight: 700;
 }
+
+header p {
+    margin: 0.5rem 0 0;
+}
+
+/* Main */
 
 main {
     max-width: 700px;
@@ -38,12 +53,16 @@ main {
     padding: 0 1rem;
 }
 
+/* Form */
+
 form,
 .confirmation {
-    background: var(--surface);
+    background-color: #ffffff;
+    color: #1a1f2e;
     padding: 2rem;
+    border: 2px solid #1a1f2e;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(26, 31, 46, 0.15);
 }
 
 .form-group {
@@ -53,10 +72,19 @@ form,
 label,
 legend {
     display: block;
-    font-weight: 600;
     margin-bottom: 0.5rem;
+    color: #1a1f2e;
     font-family: "Poppins", sans-serif;
+    font-weight: 600;
 }
+
+.required {
+    color: #1a1f2e;
+    font-weight: 700;
+    margin-left: 0.2rem;
+}
+
+/* Form controls */
 
 input[type="text"],
 input[type="date"],
@@ -64,28 +92,40 @@ select,
 textarea {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid var(--border);
+    border: 2px solid #1a1f2e;
     border-radius: 8px;
-    font-size: 1rem;
+    background-color: #ffffff;
+    color: #1a1f2e;
     font-family: inherit;
+    font-size: 1rem;
 }
 
 textarea {
+    min-height: 120px;
     resize: vertical;
 }
 
-/* Rating section */
+input::placeholder,
+textarea::placeholder {
+    color: #1a1f2e;
+    opacity: 0.75;
+}
+
+/* Fieldsets */
+
 fieldset {
-    border: 1px solid var(--border);
+    border: 2px solid #1a1f2e;
     border-radius: 8px;
     padding: 1rem;
-    background: #ffffff;
+    background-color: #ffffff;
 }
 
 fieldset legend {
-    color: #111827;   /* Darker text for better contrast */
-    font-weight: 600;
+    color: #1a1f2e;
+    padding: 0 0.25rem;
 }
+
+/* Star rating */
 
 .rating {
     display: flex;
@@ -95,63 +135,161 @@ fieldset legend {
 }
 
 .rating input {
-    display: none;
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
 }
 
 .rating label {
-    font-size: 2rem;
-    color: #6b7280;   /* Darker gray instead of very light gray */
+    margin: 0;
+    padding: 0.1rem;
+    color: #1a1f2e;
+    font-size: 2.25rem;
+    line-height: 1;
     cursor: pointer;
-    transition: color 0.2s ease;
 }
+
+/* Orange star filler */
 
 .rating label:hover,
 .rating label:hover ~ label,
 .rating input:checked ~ label {
-    color: #d97706;   /* Accessible amber/gold */
+    color: #ff8c00;
 }
 
+/* Focus */
+
+.rating input:focus-visible + label {
+    outline: 3px solid #1a1f2e;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid #1a1f2e;
+    outline-offset: 2px;
+    border-color: #1a1f2e;
+}
+
+/* Checkboxes */
+
+.checkbox-group {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    color: #1a1f2e;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.checkbox-group input {
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: #1a1f2e;
+}
+
+/* Submit button */
+
 input[type="submit"] {
-    background: var(--primary);
-    color: white;
-    border: none;
+    width: 100%;
     padding: 0.85rem 1.5rem;
+    border: 2px solid #1a1f2e;
     border-radius: 8px;
+    background-color: #1a1f2e;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    width: 100%;
 }
 
 input[type="submit"]:hover {
-    background: var(--primary-dark);
+    background-color: #10131d;
+    border-color: #10131d;
 }
+
+input[type="submit"]:focus-visible {
+    outline: 3px solid #1a1f2e;
+    outline-offset: 3px;
+}
+
+/* Confirmation */
 
 .confirmation {
     text-align: center;
 }
 
-.confirmation a {
-    color: var(--primary);
+.confirmation h2 {
+    margin-top: 0;
+    color: #1a1f2e;
+    font-family: "Poppins", sans-serif;
+}
+
+.confirmation p {
+    color: #1a1f2e;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    background-color: #1a1f2e;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
     text-decoration: none;
 }
 
-.confirmation a:hover {
-    text-decoration: underline;
+.back-link:hover {
+    background-color: #10131d;
 }
 
+.back-link:focus-visible {
+    outline: 3px solid #1a1f2e;
+    outline-offset: 3px;
+}
+
+/* Footer */
+
 footer {
-    text-align: center;
-    padding: 1rem;
-    background: #111827;
-    color: white;
     margin-top: 2rem;
+    padding: 1rem;
+    background-color: #1a1f2e;
+    color: #ffffff;
+    text-align: center;
 }
 
 footer p {
     margin: 0.3rem 0;
 }
+
+/* Screen-reader-only text */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Responsive */
 
 @media (max-width: 600px) {
     form,
@@ -160,12 +298,7 @@ footer p {
     }
 
     .rating label {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
     }
 }
-
-.required {
-    color: #dc2626;
-    font-weight: 700;
-    margin-left: 0.2rem;
-}
+```
