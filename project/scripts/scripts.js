@@ -1,7 +1,3 @@
-// =========================================
-// HAMBURGER NAVIGATION - FIXED VERSION
-// =========================================
-
 function setupNavigation() {
   const menuBtn = document.querySelector('#menu');
   const nav = document.querySelector('#primary-nav');
@@ -9,9 +5,9 @@ function setupNavigation() {
   if (!menuBtn || !nav) return;
 
   menuBtn.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('open');
+    const isOpen = menuBtn.classList.toggle('open');
 
-    menuBtn.classList.toggle('open', isOpen);
+    nav.classList.toggle('open', isOpen);
 
     menuBtn.setAttribute('aria-expanded', String(isOpen));
 
@@ -21,7 +17,6 @@ function setupNavigation() {
     );
   });
 
-  // Close menu on desktop resize
   window.addEventListener('resize', () => {
     if (window.innerWidth >= 992) {
       nav.classList.remove('open');
@@ -209,18 +204,6 @@ const PRODUCTS = [
   }
 ];
 
-document.addEventListener('DOMContentLoaded', () => {
-  setupNavigation();
-  setupGlobalEvents();
-  setupFilters();
-  setupContactForm();
-  setupNewsletterForm();
-  setupFooter();
-
-  renderProducts();
-  refreshUI();
-});
-
 //--Newsletter Form Handling--
 function setupNewsletterForm() {
   const form = document.querySelector('#newsletter-form');
@@ -289,16 +272,28 @@ const CartStore = {
   },
 
   updateQuantity(productId, delta) {
-    const cart = this.get();
-    const item = cart.find((entry) => entry.id === productId);
+  const cart = this.get();
 
-    if (!item) return;
+  const item = cart.find((entry) => entry.id === productId);
 
-    item.quantity += delta;
-    const updatedCart = cart.filter((entry) => entry.quantity > 0);
+  if (!item) return;
 
-    this.save(updatedCart);
-  },
+  // Increase or decrease by ONE only
+  if (delta === 1) {
+    item.quantity += 1;
+  }
+
+  if (delta === -1) {
+    item.quantity -= 1;
+  }
+
+  // Remove item if quantity becomes 0
+  const updatedCart = cart.filter(
+    (entry) => entry.quantity > 0
+  );
+
+  this.save(updatedCart);
+},
 
   getTotals() {
     const cart = this.get();
@@ -327,87 +322,151 @@ function updateCartWidget() {
   if (totalEl) totalEl.textContent = formatCurrency(subtotal);
 }
 
-function renderProducts(category = 'all') {
-  const grid = document.querySelector('#product-grid');
-  if (!grid) return;
-
-  const filtered =
-    category === 'all'
-      ? PRODUCTS
-      : PRODUCTS.filter((product) => product.category === category);
-
-  grid.innerHTML = filtered
-    .map(
-      (product) => `
-    <article class="product-card">
-      <div class="product-badges">
-        <span class="badge badge-hot">${product.badge}</span>
-      </div>
-
-      <img src="${product.image}"
-           alt="${product.name}"
-           width="400"
-           height="300"
-           loading="lazy">
-
-      <div class="product-info">
-        <h3>${product.name}</h3>
-        <p class="price">
-          <span class="old-price">${formatCurrency(product.oldPrice)}</span>
-          <span class="new-price">${formatCurrency(product.price)}</span>
-        </p>
-
-        <button class="add-to-cart" data-id="${product.id}">
-          Add to Cart
-        </button>
-      </div>
-    </article>
-  `
-    )
-    .join('');
-}
 
 function renderCartPage() {
   const container = document.querySelector('#cart-items');
+
   if (!container) return;
 
   const cart = CartStore.get();
 
   if (cart.length === 0) {
-    container.innerHTML = `<p class="empty-cart">Your cart is currently empty.</p>`;
-  } else {
-    container.innerHTML = cart
-      .map(
-        (item) => `
-      <article class="cart-item">
-        <div>
-          <h3>${item.name}</h3>
-          <p>${formatCurrency(item.price)} × ${item.quantity}</p>
-        </div>
+    container.innerHTML = `
+      <p class="empty-cart">
+        Your cart is currently empty.
+      </p>
+    `;
 
-        <div class="cart-actions">
-          <button class="qty-btn" data-action="decrease" data-id="${item.id}">−</button>
-          <span>${item.quantity}</span>
-          <button class="qty-btn" data-action="increase" data-id="${item.id}">+</button>
-        </div>
-      </article>
-    `
-      )
-      .join('');
+    return;
   }
 
-  // Update Cart Summaries
-  const { subtotal, delivery, vat, grandTotal } = CartStore.getTotals();
+  /* =========================
+     DELIVERY LOCATION
+  ========================= */
+  const location =
+    localStorage.getItem('eshop-location') || 'Kigali';
 
-  const updateElementText = (selector, val) => {
-    const el = document.querySelector(selector);
-    if (el) el.textContent = formatCurrency(val);
-  };
+  let deliveryFee = 2000;
 
-  updateElementText('#subtotal', subtotal);
-  updateElementText('#delivery-fee', delivery);
-  updateElementText('#vat-total', vat);
-  updateElementText('#grand-total', grandTotal);
+  if (location === 'Huye') deliveryFee = 3500;
+  if (location === 'Musanze') deliveryFee = 4000;
+  if (location === 'Rubavu') deliveryFee = 4500;
+
+  /* =========================
+     CALCULATIONS
+  ========================= */
+  let subtotal = 0;
+
+  cart.forEach((item) => {
+    subtotal += item.price * item.quantity;
+  });
+
+  const totalQuantity = cart.reduce(
+    (sum, item) => sum + item.quantity,
+    0
+  );
+
+  // Extra delivery for more items
+  deliveryFee += Math.max(0, totalQuantity - 1) * 500;
+
+  // 5% discount if 3 or more items total
+  const discount =
+    totalQuantity >= 3 ? subtotal * 0.05 : 0;
+
+  const taxable = subtotal - discount;
+
+  const vat = taxable * 0.18;
+
+  const grandTotal = taxable + vat + deliveryFee;
+
+  /* =========================
+     ONE RECEIPT
+  ========================= */
+  container.innerHTML = `
+    <section class="receipt-card">
+
+      <h3>🧾 Order Receipt</h3>
+
+      <div class="receipt-items">
+        ${cart
+          .map(
+            (item) => `
+            <article class="receipt-item">
+
+              <div>
+                <strong>${item.name}</strong><br>
+                ${formatCurrency(item.price)} × ${item.quantity}
+              </div>
+
+              <div class="cart-actions">
+                <button
+                  class="qty-btn"
+                  data-action="decrease"
+                  data-id="${item.id}">−</button>
+
+                <span>${item.quantity}</span>
+
+                <button
+                  class="qty-btn"
+                  data-action="increase"
+                  data-id="${item.id}">+</button>
+              </div>
+
+            </article>
+          `
+          )
+          .join('')}
+      </div>
+
+      <hr>
+
+      <div class="receipt-summary">
+        <p>
+          <span>Items:</span>
+          <strong>${totalQuantity}</strong>
+        </p>
+
+        <p>
+          <span>Subtotal:</span>
+          <strong>${formatCurrency(subtotal)}</strong>
+        </p>
+
+        <p>
+          <span>Discount:</span>
+          <strong>- ${formatCurrency(discount)}</strong>
+        </p>
+
+        <p>
+          <span>Delivery (${location}):</span>
+          <strong>${formatCurrency(deliveryFee)}</strong>
+        </p>
+
+        <p>
+          <span>VAT (18%):</span>
+          <strong>${formatCurrency(vat)}</strong>
+        </p>
+
+        <p class="receipt-total">
+          <span>Total:</span>
+          <strong>${formatCurrency(grandTotal)}</strong>
+        </p>
+      </div>
+
+    </section>
+  `;
+
+  /* Update summary sidebar */
+  document.querySelector('#subtotal').textContent =
+    formatCurrency(subtotal);
+
+  document.querySelector('#delivery-fee').textContent =
+    formatCurrency(deliveryFee);
+
+  document.querySelector('#vat-total').textContent =
+    formatCurrency(vat);
+
+  document.querySelector('#grand-total').textContent =
+    formatCurrency(grandTotal);
 }
 
 function refreshUI() {
@@ -415,36 +474,67 @@ function refreshUI() {
   renderCartPage();
 }
 
-// --- EVENT HANDLERS (Delegated) ---
 function setupGlobalEvents() {
-  // Handle "Add to Cart" using Event Delegation
   document.addEventListener('click', (event) => {
+
+    /* =========================
+       ADD TO CART
+    ========================= */
     const addToCartBtn = event.target.closest('.add-to-cart');
+
     if (addToCartBtn) {
       const id = Number(addToCartBtn.dataset.id);
+
+      // Prevent multiple clicks
+      if (addToCartBtn.disabled) return;
+
       if (id > 0 && CartStore.addItem(id)) {
+
+        addToCartBtn.disabled = true;
         addToCartBtn.textContent = 'Added ✓';
+
         refreshUI();
+
+        // Re-enable after a short delay
+        setTimeout(() => {
+          addToCartBtn.disabled = false;
+          addToCartBtn.textContent = 'Add to Cart';
+        }, 1200);
+
       } else {
         addToCartBtn.textContent = 'Unavailable';
       }
+
       return;
     }
 
-    // Handle Quantity Changes (+ / -) using Event Delegation
+    /* =========================
+       CART QUANTITY CONTROLS
+    ========================= */
     const qtyBtn = event.target.closest('.qty-btn');
+
     if (qtyBtn) {
       const id = Number(qtyBtn.dataset.id);
       const action = qtyBtn.dataset.action;
-      const delta = action === 'increase' ? 1 : -1;
 
-      CartStore.updateQuantity(id, delta);
+      if (action === 'increase') {
+        CartStore.updateQuantity(id, 1);
+      }
+
+      if (action === 'decrease') {
+        CartStore.updateQuantity(id, -1);
+      }
+
       refreshUI();
+      return;
     }
   });
 
-  // Handle Clear Cart Button
+  /* =========================
+     CLEAR CART
+  ========================= */
   const clearBtn = document.querySelector('#clear-cart-btn');
+
   if (clearBtn) {
     clearBtn.addEventListener('click', () => {
       CartStore.clear();
@@ -525,9 +615,9 @@ function renderProducts(category = 'all', stock = 'all', search = '') {
 
   // Availability filter
   if (stock === 'in-stock') {
-    filtered = filtered.filter((product) => product.available);
+    filtered = filtered.filter((product) => product.inStock);
   } else if (stock === 'out-of-stock') {
-    filtered = filtered.filter((product) => !product.available);
+    filtered = filtered.filter((product) => !product.inStock);
   }
 
   // Search filter
@@ -550,8 +640,8 @@ function renderProducts(category = 'all', stock = 'all', search = '') {
       <article class="product-card">
         <div class="product-badges">
           <span class="badge badge-hot">${product.badge}</span>
-          <span class="stock ${product.available ? 'in-stock' : 'out-of-stock'}">
-            ${product.available ? 'In Stock' : 'Out of Stock'}
+          <span class="stock ${product.inStock ? 'in-stock' : 'out-of-stock'}">
+            ${product.inStock ? 'In Stock' : 'Out of Stock'}
           </span>
         </div>
 
@@ -572,8 +662,8 @@ function renderProducts(category = 'all', stock = 'all', search = '') {
           <button
             class="add-to-cart"
             data-id="${product.id}"
-            ${!product.available ? 'disabled' : ''}>
-            ${product.available ? 'Add to Cart' : 'Unavailable'}
+            ${!product.inStock ? 'disabled' : ''}>
+            ${product.inStock ? 'Add to Cart' : 'Unavailable'}
           </button>
         </div>
       </article>

@@ -5,11 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>E-Shop Rwanda | About Us</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>E-Shop Rwanda | About Us</title>
 
   <meta name="description"
-        content="Learn about E-Shop Rwanda, our mission, vision, and commitment to affordable and secure online shopping across Rwanda.">
+        content="Learn about E-Shop Rwanda, our mission, vision, customer-focused values, nationwide delivery service, and commitment to affordable and secure online shopping in Rwanda.">
 
   <meta name="author" content="Muhire Bienvenue">
+
+  <meta name="robots" content="index, follow">
+  <meta name="keywords"
+        content="about E-Shop Rwanda, Rwanda e-commerce, online shopping Rwanda, trusted online store Rwanda, Rwanda delivery service">
+
+  <meta property="og:title"
+        content="E-Shop Rwanda | About Us">
+
+  <meta property="og:description"
+        content="Discover E-Shop Rwanda’s mission, vision, customer reviews, and commitment to convenient and secure online shopping across Rwanda.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/logo.webp">
+  <meta property="og:url" content="https://eshoprwanda.com/about.html">
+</head>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,14 +74,18 @@
       </ul>
     </nav>
 
-    <aside class="cart-widget" aria-label="Shopping cart summary">
-      <span aria-hidden="true">🛒</span>
+    <a href="cart.html"
+   class="cart-widget"
+   aria-label="Open shopping cart">
 
-      <div>
-        <strong id="cart-count">0</strong> items<br>
-        <span id="cart-total">RWF 0</span>
-      </div>
-    </aside>
+  <span aria-hidden="true">🛒</span>
+
+  <div>
+    <strong id="cart-count">0</strong> items<br>
+    <span id="cart-total">RWF 0</span>
+  </div>
+
+</a>
   </header>
 
   <main class="page-content">
@@ -109,6 +132,118 @@
       </article>
 
     </section>
+      <section class="customer-reviews" aria-labelledby="reviews-title">
+  <div class="section-heading">
+    <h2 id="reviews-title">Customer Reviews</h2>
+    <p>What our customers say about E-Shop Rwanda.</p>
+  </div>
+
+  <div class="reviews-grid">
+    <article class="review-card">
+      <div class="stars" aria-label="5 star rating">★★★★★</div>
+      <p>“The delivery was incredibly fast and the groceries were fresh.”</p>
+      <h3>Aline M.</h3>
+    </article>
+
+    <article class="review-card">
+      <div class="stars" aria-label="5 star rating">★★★★★</div>
+      <p>“I love the clean interface and easy checkout process.”</p>
+      <h3>Eric K.</h3>
+    </article>
+
+    <article class="review-card">
+      <div class="stars" aria-label="4 star rating">★★★★☆</div>
+      <p>“Affordable prices and reliable customer support whenever I need help.”</p>
+      <h3>Grace U.</h3>
+    </article>
+
+    <article class="review-card">
+      <div class="stars" aria-label="5 star rating">★★★★★</div>
+      <p>“The coffee quality exceeded my expectations. Highly recommended!”</p>
+      <h3>Jean P.</h3>
+    </article>
+
+    <article class="review-card">
+      <div class="stars" aria-label="5 star rating">★★★★★</div>
+      <p>“Mobile Money payment worked perfectly and the order arrived on time.”</p>
+      <h3>Diane T.</h3>
+    </article>
+
+    <article class="review-card">
+      <div class="stars" aria-label="4 star rating">★★★★☆</div>
+      <p>“Great selection of electronics and household products in one place.”</p>
+      <h3>Patrick N.</h3>
+    </article>
+  </div>
+</section>
+
+<section class="review-form-section" aria-labelledby="review-form-title">
+  <div class="section-heading">
+    <h2 id="review-form-title">Product & Service Review</h2>
+    <p>Help us improve your shopping experience.</p>
+  </div>
+
+  <form class="contact-form">
+    <fieldset>
+      <legend>Rate Your Experience</legend>
+
+      <label for="ui-rating">App User Interface</label>
+      <select id="ui-rating" required>
+        <option value="">Select rating</option>
+        <option>★★★★★ Excellent</option>
+        <option>★★★★☆ Very Good</option>
+        <option>★★★☆☆ Good</option>
+        <option>★★☆☆☆ Fair</option>
+        <option>★☆☆☆☆ Poor</option>
+      </select>
+
+      <label for="delivery-rating">Delivery Service</label>
+      <select id="delivery-rating" required>
+        <option value="">Select rating</option>
+        <option>★★★★★ Excellent</option>
+        <option>★★★★☆ Very Good</option>
+        <option>★★★☆☆ Good</option>
+        <option>★★☆☆☆ Fair</option>
+        <option>★☆☆☆☆ Poor</option>
+      </select>
+
+      <label for="quality-rating">Product Quality</label>
+      <select id="quality-rating" required>
+        <option value="">Select rating</option>
+        <option>★★★★★ Excellent</option>
+        <option>★★★★☆ Very Good</option>
+        <option>★★★☆☆ Good</option>
+        <option>★★☆☆☆ Fair</option>
+        <option>★☆☆☆☆ Poor</option>
+      </select>
+
+      <label for="payment-rating">Payment Methods</label>
+      <select id="payment-rating" required>
+        <option value="">Select rating</option>
+        <option>★★★★★ Excellent</option>
+        <option>★★★★☆ Very Good</option>
+        <option>★★★☆☆ Good</option>
+        <option>★★☆☆☆ Fair</option>
+        <option>★☆☆☆☆ Poor</option>
+      </select>
+
+      <label for="overall-rating">Overall Rating</label>
+      <select id="overall-rating" required>
+        <option value="">Select rating</option>
+        <option>★★★★★ Excellent</option>
+        <option>★★★★☆ Very Good</option>
+        <option>★★★☆☆ Good</option>
+        <option>★★☆☆☆ Fair</option>
+        <option>★☆☆☆☆ Poor</option>
+      </select>
+
+      <label for="review-comments">Additional Comments</label>
+      <textarea id="review-comments" rows="4" placeholder="Tell us about your experience..."></textarea>
+
+      <button type="submit" class="btn btn-primary">Submit Review</button>
+    </fieldset>
+  </form>
+</section>
 
   </main>
 
