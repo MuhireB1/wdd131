@@ -73,13 +73,13 @@ label,
 legend {
     display: block;
     margin-bottom: 0.5rem;
-    color: #1a1f2e;
+    color: #2e1a1a;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
 }
 
 .required {
-    color: #1a1f2e;
+    color: red;
     font-weight: 700;
     margin-left: 0.2rem;
 }
@@ -301,4 +301,3 @@ footer p {
         font-size: 1.9rem;
     }
 }
-```
